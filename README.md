@@ -31,9 +31,6 @@ motion_canopen_master/
 │   ├── co_nmt.h
 │   ├── co_sdo.h
 │   ├── co_pdo.h
-│   ├── co_emcy.h
-│   ├── co_heartbeat.h
-│   ├── co_object_dictionary.h
 │   ├── motion_drive.h
 │   └── motion_drive_helper.h
 │
@@ -41,8 +38,6 @@ motion_canopen_master/
 │   ├── co_nmt.c
 │   ├── co_sdo.c
 │   ├── co_pdo.c
-│   ├── co_emcy.c
-│   ├── co_heartbeat.c
 │   ├── motion_drive.c
 │   └── motion_drive_helper.c
 │
@@ -172,8 +167,8 @@ After sending NMT Start Remote Node, the drive enters Operational state. Real-ti
 | RPDO2 | `0x300 + node_id` | Current-loop gains |
 | RPDO3 | `0x400 + node_id` | Velocity-loop gains |
 | RPDO4 | `0x500 + node_id` | Position-loop gains |
-| RPDO5 | `0x600 + node_id` | Target position and target velocity |
-| RPDO6 | `0x700 + node_id` | Acceleration and deceleration |
+| RPDO5 | `0x680 + node_id` | Target position and target velocity |
+| RPDO6 | `0x690 + node_id` | Acceleration and deceleration |
 
 Feedback is received through TPDOs:
 
@@ -184,7 +179,7 @@ Feedback is received through TPDOs:
 | TPDO3 | `0x380 + node_id` | Current feedback |
 | TPDO4 | `0x480 + node_id` | Commanded internal motion values |
 
-> **Important COB-ID warning:** `0x700 + node_id` is the standard CANopen heartbeat COB-ID. If RPDO6 also uses `0x700 + node_id`, it conflicts with heartbeat. Either remap RPDO6 or disable/remap heartbeat in the drive.
+> **Important  warning:** 
 
 ---
 

@@ -1,6 +1,6 @@
 # Motion CANopen Master C Library
 
-Portable C CANopen master library for an FOC motion controller. This C library is based on the Python CANopen helper workflow used for the motion controller and follows the same high-level control model: configure/read values through SDO during setup, switch the node to Operational state, then use PDOs for real-time command and feedback.
+Portable C CANopen master library for an FOC motor controller developed by Medplus India Pvt Ltd. This C library is based on the Python CANopen helper workflow used for the motion controller and follows the same high-level control model: configure/read values through SDO during setup, switch the node to Operational state, then use PDOs for real-time command and feedback.
 
 The current C API is designed around one `motion_drive_t` object per CANopen drive/node. Each drive object stores the CAN interface pointer, node ID, NMT state, cached command values, and real-time feedback values received from TPDOs.
 
